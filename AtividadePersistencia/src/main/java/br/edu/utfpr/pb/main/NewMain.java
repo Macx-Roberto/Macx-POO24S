@@ -5,7 +5,9 @@
  */
 package br.edu.utfpr.pb.main;
 
+import br.edu.utfpr.pb.model.Evento;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.h2.tools.Server;
@@ -26,6 +28,12 @@ public class NewMain {
         } catch (SQLException ex) {
             Logger.getLogger(NewMain.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        Evento evtMacx = new Evento();
+        evtMacx.setDescricao("zecatatuamarelobrancopreto teste de insert");
+        evtMacx.setNome("Evento do macx");
+        //evtMacx.setDataEvento(LocalDate.MIN);
+        
         System.exit(0);
     }
     
