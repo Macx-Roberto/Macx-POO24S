@@ -7,12 +7,16 @@ package br.edu.utfpr.pb.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -20,7 +24,7 @@ import javax.persistence.Table;
  * @author macxi
  */
 @Entity
-@Table(name = "autor")
+@Table(name = "evento")
 public class Evento implements Serializable {
 
     @Id
@@ -35,6 +39,10 @@ public class Evento implements Serializable {
     
     @Column(name = "dtEvento")
     private LocalDate dataEvento;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER,
+            mappedBy = "evento")
+    private List<Inscrito> inscritosEvento;
 
     public Evento() {
     }
